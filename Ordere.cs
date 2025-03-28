@@ -1,4 +1,5 @@
-﻿namespace lab2WINFORMS;
+﻿namespace lab2;
+
 
 [Serializable]
 public class Ordere
@@ -18,6 +19,7 @@ public class Ordere
             _orderLines.ForEach(x => sum += x.Cost);
             if (_isExpressDelivery)
             {
+                //TODO: ввод данных 
                 sum *= 1.25;
             }
 

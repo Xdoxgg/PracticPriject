@@ -1,4 +1,5 @@
-﻿namespace lab2WINFORMS;
+﻿namespace lab2;
+
 [Serializable]
 public class Item
 {
@@ -15,5 +16,10 @@ public class Item
         _article = article;
         _name = name ?? throw new ArgumentNullException(nameof(name));
         _unitPrice = unitPrice;
+    }
+
+    public override string ToString()
+    {
+        return $"артикль: {_article}; название: {_name}; цена за единицу: {_unitPrice}";
     }
 }

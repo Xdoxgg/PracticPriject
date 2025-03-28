@@ -1,6 +1,7 @@
 ﻿using System.Text.Json;
 
-namespace lab2WINFORMS;
+namespace lab2;
+
 
 public static class DataProcessing
 {
