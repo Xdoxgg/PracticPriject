@@ -9,12 +9,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Compile Update="TestFrom.cs">
-        <SubType>Form</SubType>
-      </Compile>
-    </ItemGroup>
-
-    <ItemGroup>
       <Folder Include="Data\" />
     </ItemGroup>
 

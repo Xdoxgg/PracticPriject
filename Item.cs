@@ -3,7 +3,7 @@
 [Serializable]
 public class Item
 {
-    private int _article;
+    private string _article;
     private string _name;
     private double _unitPrice;
 
@@ -11,15 +11,46 @@ public class Item
     {
     }
 
-    public int Article => _article;
-    public string Name => _name;
-    public double UnitPrice => _unitPrice;
-
-    public Item(int article, string name, double unitPrice)
+    public string Article
     {
-        _article = article;
-        _name = name ?? throw new ArgumentNullException(nameof(name));
-        _unitPrice = unitPrice;
+        get => _article;
+        set
+        {
+            if (value.Length != 6) throw new ArgumentException("Невалидное значение Article");
+        }
+    }
+
+    public string Name
+    {
+        get => _name;
+        set
+        {
+            if (value == "" || value == null) throw new ArgumentException("Невалидное значение Name");
+            _name = value;
+        }
+    }
+
+    private bool CheckPrice(double value)
+    {
+        string formattedValue = value.ToString("F2");
+        return formattedValue.Split('.')[1].Length == 2;
+    }
+    
+    public double UnitPrice
+    {
+        get => _unitPrice;
+        set
+        {
+            if (value <= 0 && CheckPrice(value)) throw new ArgumentException("Невалидное значение UnitPrice");
+            _unitPrice = value;
+        }
+    }
+
+    public Item(string article, string name, double unitPrice)
+    {
+        Article = article;
+        Name = name ?? throw new ArgumentNullException(nameof(name));
+        UnitPrice = unitPrice;
     }
 
     public override string ToString()
