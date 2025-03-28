@@ -1,4 +1,4 @@
-﻿namespace lab2WINFORMS;
+﻿namespace lab2;
 
 [Serializable]
 public class OrderLine

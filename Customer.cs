@@ -1,4 +1,5 @@
-﻿namespace lab2WINFORMS;
+﻿namespace lab2;
+
 
 public class Customer
 {
