@@ -31,9 +31,9 @@ public class Item
 
     public Item(int article, string name, double unitPrice)
     {
-        _article = article;
-        _name = name ?? throw new ArgumentNullException(nameof(name));
-        _unitPrice = unitPrice;
+        Article = article;
+        Name = name ?? throw new ArgumentNullException(nameof(name));
+        UnitPrice = unitPrice;
     }
 
     public override string ToString()

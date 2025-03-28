@@ -38,9 +38,9 @@ public class Customer
 
     public Customer(string code, string contactPhone, string fullName, bool isPrivileged)
     {
-        _code = code ?? throw new ArgumentNullException(nameof(code));
-        _contactPhone = contactPhone ?? throw new ArgumentNullException(nameof(contactPhone));
-        _fullName = fullName ?? throw new ArgumentNullException(nameof(fullName));
-        _isPrivileged = isPrivileged;
+        Code = code ?? throw new ArgumentNullException(nameof(code));
+        ContactPhone = contactPhone ?? throw new ArgumentNullException(nameof(contactPhone));
+        FullName = fullName ?? throw new ArgumentNullException(nameof(fullName));
+        Privileged = isPrivileged;
     }
 }

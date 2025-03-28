@@ -25,8 +25,8 @@ public class OrderLine
 
     public OrderLine(int quantity, Item item)
     {
-        _quantity = quantity;
-        _item = item;
+        Quantity = quantity;
+        Item = item;
     }
 
     public OrderLine()

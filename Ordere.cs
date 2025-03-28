@@ -13,12 +13,12 @@ public class Ordere
 
     public Ordere(int number, DateTime creationDate, string adress, bool isExpressDelivery, Customer customer, List<OrderLine> orderLines)
     {
-        _number = number;
-        _creationDate = creationDate;
-        _adress = adress;
-        _isExpressDelivery = isExpressDelivery;
-        _customer = customer;
-        _orderLines = orderLines;
+        Number = number;
+        CreationDate = creationDate;
+        Adress = adress;
+        IsExpressDelivery = isExpressDelivery;
+        Customer = customer;
+        OrderLines = orderLines;
     }
 
     public Ordere()
