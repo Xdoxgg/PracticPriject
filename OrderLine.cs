@@ -11,4 +11,14 @@ public class OrderLine
     {
         get { return _item.UnitPrice * _quantity; }
     }
+
+    public OrderLine(int quantity, Item item)
+    {
+        _quantity = quantity;
+        _item = item;
+    }
+
+    public OrderLine()
+    {
+    }
 }

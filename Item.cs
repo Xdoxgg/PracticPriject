@@ -7,6 +7,10 @@ public class Item
     private string _name;
     private double _unitPrice;
 
+    public Item()
+    {
+    }
+
     public int Article => _article;
     public string Name => _name;
     public double UnitPrice => _unitPrice;

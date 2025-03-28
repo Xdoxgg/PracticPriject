@@ -11,6 +11,20 @@ public class Ordere
     private Customer _customer;
     private List<OrderLine> _orderLines;
 
+    public Ordere(int number, DateTime creationDate, string adress, bool isExpressDelivery, Customer customer, List<OrderLine> orderLines)
+    {
+        _number = number;
+        _creationDate = creationDate;
+        _adress = adress;
+        _isExpressDelivery = isExpressDelivery;
+        _customer = customer;
+        _orderLines = orderLines;
+    }
+
+    public Ordere()
+    {
+    }
+
     public int Number => _number;
     public DateTime CreationDate => _creationDate;
     public string Adress => _adress;

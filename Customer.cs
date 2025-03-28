@@ -1,8 +1,12 @@
 ﻿namespace lab2;
 
-
+[Serializable]
 public class Customer
 {
+    public Customer()
+    {
+    }
+
     private string _code;
     private string _contactPhone;
     private string _fullName;

@@ -1,0 +1,68 @@
+[
+  {
+    "Number": 1,
+    "CreationDate": "2025-05-20T00:00:00",
+    "Adress": "adress",
+    "IsExpressDelivery": false,
+    "Customer": {
+      "Privileged": false,
+      "Code": "1",
+      "ContactPhone": "\u002B375...",
+      "FullName": "full name"
+    },
+    "OrderLines": [
+      {
+        "Item": {
+          "Article": 1,
+          "Name": "1",
+          "UnitPrice": 1
+        },
+        "Quantity": 2,
+        "Cost": 2
+      },
+      {
+        "Item": {
+          "Article": 2,
+          "Name": "2",
+          "UnitPrice": 2
+        },
+        "Quantity": 3,
+        "Cost": 6
+      }
+    ],
+    "TotalCost": 8
+  },
+  {
+    "Number": 1,
+    "CreationDate": "2025-05-20T00:00:00",
+    "Adress": "adress",
+    "IsExpressDelivery": false,
+    "Customer": {
+      "Privileged": false,
+      "Code": "1",
+      "ContactPhone": "\u002B375...",
+      "FullName": "full name"
+    },
+    "OrderLines": [
+      {
+        "Item": {
+          "Article": 1,
+          "Name": "1",
+          "UnitPrice": 1
+        },
+        "Quantity": 2,
+        "Cost": 2
+      },
+      {
+        "Item": {
+          "Article": 2,
+          "Name": "2",
+          "UnitPrice": 2
+        },
+        "Quantity": 3,
+        "Cost": 6
+      }
+    ],
+    "TotalCost": 8
+  }
+]
