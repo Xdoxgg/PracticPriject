@@ -9,13 +9,16 @@ public class OrderLine
     public Item Item
     {
         get => _item;
-        set => _item = value;
+        set => _item = value ?? throw new ArgumentNullException("Невалидное значение Item:NULL");
     }
 
     public int Quantity
     {
         get => _quantity;
-        set => _quantity = value;
+        set
+        {
+            if (value <= 0) throw new ArgumentException("Невалидное значение Quantity");
+        }
     }
 
     public double Cost

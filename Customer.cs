@@ -21,19 +21,19 @@ public class Customer
     public string Code
     {
         get => _code;
-        set => _code = value;
+        set => _code = value?? throw new ArgumentException("Невалидное значение Code");
     }
 
     public string ContactPhone
     {
         get => _contactPhone;
-        set => _contactPhone = value;
+        set => _contactPhone = value?? throw new ArgumentException("Невалидное значение ContactPhone");
     }
 
     public string FullName
     {
         get => _fullName;
-        set => _fullName = value;
+        set => _fullName = value ?? throw new ArgumentException("Невалидное значение FullName");
     }
 
     public Customer(string code, string contactPhone, string fullName, bool isPrivileged)
