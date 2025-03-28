@@ -25,12 +25,42 @@ public class Ordere
     {
     }
 
-    public int Number => _number;
-    public DateTime CreationDate => _creationDate;
-    public string Adress => _adress;
-    public bool IsExpressDelivery => _isExpressDelivery;
-    public Customer Customer => _customer;
-    public List<OrderLine> OrderLines => _orderLines;
+    public int Number
+    {
+        get =>_number;
+        set => value = value;
+    }
+
+    public DateTime CreationDate
+    {
+        get => _creationDate;
+        set => _creationDate = value; // Добавлен сеттер
+    }
+
+    public string Adress
+    {
+        get => _adress;
+        set => _adress = value; // Добавлен сеттер
+    }
+
+    public bool IsExpressDelivery
+    {
+        get => _isExpressDelivery;
+        set => _isExpressDelivery = value; // Добавлен сеттер
+    }
+
+    public Customer Customer
+    {
+        get => _customer;
+        set => _customer = value; // Добавлен сеттер
+    }
+
+    public List<OrderLine> OrderLines
+    {
+        get => _orderLines;
+        set => _orderLines = value; // Добавлен сеттер
+    }
+
     public double TotalCost
     {
         get
