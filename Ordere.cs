@@ -11,6 +11,12 @@ public class Ordere
     private Customer _customer;
     private List<OrderLine> _orderLines;
 
+    public int Number => _number;
+    public DateTime CreationDate => _creationDate;
+    public string Adress => _adress;
+    public bool IsExpressDelivery => _isExpressDelivery;
+    public Customer Customer => _customer;
+    public List<OrderLine> OrderLines => _orderLines;
     public double TotalCost
     {
         get
@@ -19,7 +25,6 @@ public class Ordere
             _orderLines.ForEach(x => sum += x.Cost);
             if (_isExpressDelivery)
             {
-                //TODO: ввод данных 
                 sum *= 1.25;
             }
 

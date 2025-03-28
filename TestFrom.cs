@@ -6,8 +6,8 @@ public partial class TestForm : Form
     {
         InitializeComponent();
         List<Item> list = new List<Item>() { new Item(1,"1",1), new Item(1,"1",1), new Item(1,"1",1), new Item(1,"1",1)};
-        DataProcessing.WriteToFile("..//..//..//Data//test.json", list);
-        var result = DataProcessing.GetFromFile<Item>("..//..//..//Data//test.json");
+        DataProcessing.WriteToFile(list);
+        var result = DataProcessing.ReadJsonFromFile<Item>();
         string res = "";
         foreach (var VARIABLE in result)
         {
