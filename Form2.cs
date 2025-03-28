@@ -26,7 +26,7 @@ namespace lab2
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            //TODO: МИШАААНЯЯ ДОБАВЬ ВОЗВРАТ на 1 форму
+            //TODO: return to Form1
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -40,15 +40,14 @@ namespace lab2
                 return;
             }
 
-            int article;
+            string article = input1.ToString();
             string name = input2.ToString();
             double price;
 
-            if (int.TryParse(input1, out article) &&
-                double.TryParse(input3, out price))
+            if (double.TryParse(input3, out price))
             {
                 Item i = new Item(article, name, price);
-                //TODO: в json закинуть
+                //TODO: in json
             }
             else
             {
@@ -57,7 +56,7 @@ namespace lab2
         }
         private bool IsValidDouble(string input)
         {
-            //TODO: хуета не робит
+            //TODO: huita ne robit
             string pattern = @"^\d+(\.\d{1,2})?$";
             return Regex.IsMatch(input, pattern);
         }

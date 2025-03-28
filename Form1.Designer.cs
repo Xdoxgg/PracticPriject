@@ -36,8 +36,8 @@ partial class Form1
         label2 = new Label();
         menuStrip1 = new MenuStrip();
         toolStripMenuItem1 = new ToolStripMenuItem();
-        добавитьТоварToolStripMenuItem = new ToolStripMenuItem();
-        добавToolStripMenuItem = new ToolStripMenuItem();
+        AddItemToolStripMenuItem = new ToolStripMenuItem();
+        AddCustomerToolStripMenuItem = new ToolStripMenuItem();
         ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
         menuStrip1.SuspendLayout();
         SuspendLayout();
@@ -100,24 +100,25 @@ partial class Form1
         // 
         // toolStripMenuItem1
         // 
-        toolStripMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { добавитьТоварToolStripMenuItem, добавToolStripMenuItem });
+        toolStripMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { AddItemToolStripMenuItem, AddCustomerToolStripMenuItem });
         toolStripMenuItem1.Name = "toolStripMenuItem1";
         toolStripMenuItem1.Size = new Size(200, 24);
         toolStripMenuItem1.Text = "Добавить элемент класса";
+        toolStripMenuItem1.Click += toolStripMenuItem1_Click;
         // 
-        // добавитьТоварToolStripMenuItem
+        // AddItemToolStripMenuItem
         // 
-        добавитьТоварToolStripMenuItem.Name = "добавитьТоварToolStripMenuItem";
-        добавитьТоварToolStripMenuItem.Size = new Size(242, 26);
-        добавитьТоварToolStripMenuItem.Text = "Добавить товар";
-        добавитьТоварToolStripMenuItem.Click += добавитьТоварToolStripMenuItem_Click;
+        AddItemToolStripMenuItem.Name = "AddItemToolStripMenuItem";
+        AddItemToolStripMenuItem.Size = new Size(242, 26);
+        AddItemToolStripMenuItem.Text = "Добавить товар";
+        AddItemToolStripMenuItem.Click += AddItemToolStripMenuItem_Click;
         // 
-        // добавToolStripMenuItem
+        // AddCustomerToolStripMenuItem
         // 
-        добавToolStripMenuItem.Name = "добавToolStripMenuItem";
-        добавToolStripMenuItem.Size = new Size(242, 26);
-        добавToolStripMenuItem.Text = "Добавить покупателя";
-        добавToolStripMenuItem.Click += добавToolStripMenuItem_Click;
+        AddCustomerToolStripMenuItem.Name = "AddCustomerToolStripMenuItem";
+        AddCustomerToolStripMenuItem.Size = new Size(242, 26);
+        AddCustomerToolStripMenuItem.Text = "Добавить покупателя";
+        AddCustomerToolStripMenuItem.Click += AddCustomerToolStripMenuItem_Click;
         // 
         // Form1
         // 
@@ -150,6 +151,6 @@ partial class Form1
     private Label label2;
     private MenuStrip menuStrip1;
     private ToolStripMenuItem toolStripMenuItem1;
-    private ToolStripMenuItem добавитьТоварToolStripMenuItem;
-    private ToolStripMenuItem добавToolStripMenuItem;
+    private ToolStripMenuItem AddItemToolStripMenuItem;
+    private ToolStripMenuItem AddCustomerToolStripMenuItem;
 }
