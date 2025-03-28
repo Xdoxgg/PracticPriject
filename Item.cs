@@ -11,9 +11,23 @@ public class Item
     {
     }
 
-    public int Article => _article;
-    public string Name => _name;
-    public double UnitPrice => _unitPrice;
+    public int Article
+    {
+        get => _article;
+        set => _article = value;
+    }
+
+    public string Name
+    {
+        get => _name;
+        set => _name = value;
+    }
+
+    public double UnitPrice
+    {
+        get => _unitPrice;
+        set => _unitPrice = value;
+    }
 
     public Item(int article, string name, double unitPrice)
     {

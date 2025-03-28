@@ -11,10 +11,31 @@ public class Customer
     private string _contactPhone;
     private string _fullName;
     private bool _isPrivileged;
-    public bool Privileged => _isPrivileged;     
-    public string Code => _code;
-    public string ContactPhone => _contactPhone;
-    public string FullName => _fullName;
+
+    public bool Privileged
+    {
+        get => _isPrivileged;
+        set => _isPrivileged = value;
+    }
+
+    public string Code
+    {
+        get => _code;
+        set => _code = value;
+    }
+
+    public string ContactPhone
+    {
+        get => _contactPhone;
+        set => _contactPhone = value;
+    }
+
+    public string FullName
+    {
+        get => _fullName;
+        set => _fullName = value;
+    }
+
     public Customer(string code, string contactPhone, string fullName, bool isPrivileged)
     {
         _code = code ?? throw new ArgumentNullException(nameof(code));

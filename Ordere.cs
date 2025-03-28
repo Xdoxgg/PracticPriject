@@ -34,31 +34,31 @@ public class Ordere
     public DateTime CreationDate
     {
         get => _creationDate;
-        set => _creationDate = value; // Добавлен сеттер
+        set => _creationDate = value; 
     }
 
     public string Adress
     {
         get => _adress;
-        set => _adress = value; // Добавлен сеттер
+        set => _adress = value;
     }
 
     public bool IsExpressDelivery
     {
         get => _isExpressDelivery;
-        set => _isExpressDelivery = value; // Добавлен сеттер
+        set => _isExpressDelivery = value;
     }
 
     public Customer Customer
     {
         get => _customer;
-        set => _customer = value; // Добавлен сеттер
+        set => _customer = value;
     }
 
     public List<OrderLine> OrderLines
     {
         get => _orderLines;
-        set => _orderLines = value; // Добавлен сеттер
+        set => _orderLines = value; 
     }
 
     public double TotalCost
