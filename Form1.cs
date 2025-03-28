@@ -1,3 +1,5 @@
+п»їusing System.Runtime.Serialization.Json;
+
 namespace lab2;
 
 public partial class Form1 : Form
@@ -17,7 +19,7 @@ public partial class Form1 : Form
         dataGridView1.Columns.Add("Number", "Number");
         dataGridView1.Columns.Add("Client", "Client");
         dataGridView1.Columns.Add("Date", "Date");
-        dataGridView1.Columns.Add("Адрес", "Adress");
+        dataGridView1.Columns.Add("Dodik", "Adress");
         DataGridViewCheckBoxColumn checkBoxColumn = new DataGridViewCheckBoxColumn();
         checkBoxColumn.Name = "Urgency";
         checkBoxColumn.HeaderText = "Urgency";
@@ -47,21 +49,28 @@ public partial class Form1 : Form
         int orderId;
         if (int.TryParse(textBox1.Text, out orderId))
         {
-            LoadOrderData();
+            LoadOrderData(orderId);
         }
         else
         {
-            MessageBox.Show("Введите корректный номер заказа.");
+            MessageBox.Show("Р’РІРµРґРёС‚Рµ РєРѕСЂСЂРµРєС‚РЅС‹Р№ РЅРѕРјРµСЂ Р·Р°РєР°Р·Р°.");
         }
     }
-    private void LoadOrderData()
+    private void LoadOrderData(int id)
     {
         //TODO: load data
-        List<Ordere> orders = new List<Ordere>
+        try
         {
-            new Ordere()
-        };
-        dataGridView1.DataSource = orders;
+
+
+            var orders = DataProcessing.ReadJsonFromFile<Ordere>();
+            var result = orders.Where(x => x.Number == id);
+            dataGridView1.DataSource = result;
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show(ex.Message);
+        }
     }
 
     private void AddItemToolStripMenuItem_Click(object sender, EventArgs e)
