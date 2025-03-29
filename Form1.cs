@@ -20,6 +20,8 @@ public partial class Form1 : Form
         dataGridView1.Columns.Add("Adress", "Адрес");
         dataGridView1.Columns.Add("Customer", "Клиент");
         dataGridView1.Columns.Add("OrderLines", "Пункты заказа");
+        dataGridView1.Columns.Add("Total", "Итого");
+
         DataGridViewCheckBoxColumn checkBoxColumn = new DataGridViewCheckBoxColumn();
         checkBoxColumn.Name = "IsExpressDelivery";
         checkBoxColumn.HeaderText = "Срочный";
@@ -73,8 +75,8 @@ public partial class Form1 : Form
             {
                 orderLinesStr += VARIABLE + ";";
             }
-
-            dataGridView1.Rows.Add(result.Number, result.CreationDate, result.Adress, result.Customer, orderLinesStr,
+            
+            dataGridView1.Rows.Add(result.Number, result.CreationDate, result.Adress, result.Customer, orderLinesStr,Math.Round(result.TotalCost(),2),
                 result.IsExpressDelivery);
         }
         catch (Exception ex)
