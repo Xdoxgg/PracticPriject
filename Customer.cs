@@ -43,4 +43,9 @@ public class Customer
         FullName = fullName ?? throw new ArgumentNullException(nameof(fullName));
         Privileged = isPrivileged;
     }
+
+    public override string ToString()
+    {
+        return $"Код: {_code}; номер телефона: {_contactPhone}; ФИО: {_fullName}; привилегированный: {_isPrivileged}";
+    }
 }
