@@ -45,9 +45,6 @@
             label5 = new Label();
             textBox3 = new TextBox();
             label6 = new Label();
-            label7 = new Label();
-            label8 = new Label();
-            button3 = new Button();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -206,42 +203,11 @@
             label6.TabIndex = 18;
             label6.Text = "Кол-во";
             // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(502, 265);
-            label7.Name = "label7";
-            label7.Size = new Size(115, 20);
-            label7.TabIndex = 19;
-            label7.Text = "Итоговая цена:";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Location = new Point(537, 294);
-            label8.Name = "label8";
-            label8.Size = new Size(36, 20);
-            label8.TabIndex = 20;
-            label8.Text = "0.00";
-            // 
-            // button3
-            // 
-            button3.Location = new Point(363, 265);
-            button3.Name = "button3";
-            button3.Size = new Size(123, 54);
-            button3.TabIndex = 21;
-            button3.Text = "Рассчитать цену";
-            button3.UseVisualStyleBackColor = true;
-            // button3.Click += button3_Click;
-            // 
             // Form4
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(644, 425);
-            Controls.Add(button3);
-            Controls.Add(label8);
-            Controls.Add(label7);
             Controls.Add(label6);
             Controls.Add(textBox3);
             Controls.Add(label5);
@@ -285,8 +251,5 @@
         private Label label5;
         private TextBox textBox3;
         private Label label6;
-        private Label label7;
-        private Label label8;
-        private Button button3;
     }
 }

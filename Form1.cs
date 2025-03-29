@@ -1,6 +1,7 @@
 ﻿using System.Runtime.Serialization.Json;
 
 namespace lab2;
+public delegate void Updater();
 
 public partial class Form1 : Form
 {
@@ -115,7 +116,7 @@ public partial class Form1 : Form
     private void button3_Click(object sender, EventArgs e)
     {
         this.Visible = false;
-        Form4 f4 = new Form4(DoVisible);
+        Form4 f4 = new Form4(DoVisible, delegate () { Form1_Load(null,null); });
         f4.ShowDialog();
     }
 }
