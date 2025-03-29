@@ -63,7 +63,7 @@ public partial class Form1 : Form
         {
             var orders = DataProcessing.ReadJsonFromFile<Ordere>();
             var result = orders.Where(x => x.Number == id).First();
-  
+
             string orderLinesStr = "";
             foreach (var VARIABLE in result.OrderLines)
             {
@@ -79,17 +79,21 @@ public partial class Form1 : Form
         }
     }
 
+    private void DoVisible()
+    {
+        this.Visible = true;
+    }
     private void AddItemToolStripMenuItem_Click(object sender, EventArgs e)
     {
         this.Visible = false;
-        Form2 f1 = new Form2();
+        Form2 f1 = new Form2(DoVisible);
         f1.ShowDialog();
     }
 
     private void AddCustomerToolStripMenuItem_Click(object sender, EventArgs e)
     {
         this.Visible = false;
-        Form3 f = new Form3();
+        Form3 f = new Form3(DoVisible);
         f.ShowDialog();
     }
 

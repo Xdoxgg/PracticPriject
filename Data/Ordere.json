@@ -1,0 +1,1 @@
+[{"Number":1,"CreationDate":"2007-05-29T00:00:00","Adress":"adress","IsExpressDelivery":true,"Customer":{"Privileged":true,"Code":"123456","ContactPhone":"phone","FullName":"fullname"},"OrderLines":[{"Item":{"Article":"123456","Name":"name","UnitPrice":12.22},"Quantity":2,"Cost":24.44}]}]

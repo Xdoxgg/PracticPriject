@@ -50,7 +50,7 @@ public class Item
     public Item(string article, string name, double unitPrice)
     {
         Article = article;
-        Name = name ?? throw new ArgumentNullException(nameof(name));
+        Name = name;
         UnitPrice = unitPrice;
     }
 

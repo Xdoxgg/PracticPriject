@@ -12,9 +12,11 @@ namespace lab2
 {
     public partial class Form3 : Form
     {
-        public Form3()
+        private ShowForm _showForm;
+        public Form3(ShowForm showForm)
         {
             InitializeComponent();
+            _showForm = showForm;
         }
 
         private void Form3_Load(object sender, EventArgs e)
@@ -24,8 +26,8 @@ namespace lab2
 
         private void button1_Click(object sender, EventArgs e)
         {
+            _showForm();
             this.Hide();
-            //TODO: МИШАААНЯЯ ДОБАВЬ ВОЗВРАТ на 1 форму
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -45,10 +47,25 @@ namespace lab2
             {
                 previl= false;
             }
-            ////TODO: проверка полей 
-            Customer cs = new Customer(id,phone,fullName,previl);
-            //TODO: in json
 
+            try
+            {
+                Customer cs = new Customer(id, phone, fullName, previl);
+                List<Customer> customers = DataProcessing.ReadJsonFromFile<Customer>();
+                if (customers.Find(x => x.Code == cs.Code) != default)
+                {
+                    MessageBox.Show("Такой Пользователь уже существует уже существует");
+                }
+                else
+                {
+                    customers.Add(cs);
+                    DataProcessing.WriteToFile(customers);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
 
             //else
