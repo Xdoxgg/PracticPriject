@@ -14,19 +14,20 @@ namespace lab2
     public partial class Form4 : Form
     {
         private ShowForm _showForm;
+        private ShowForm _ud;
         List<OrderLine> _orderLines = new List<OrderLine>();
         List<Item> _items = DataProcessing.ReadJsonFromFile<Item>();
 
-        public Form4(ShowForm showForm)
+        public Form4(ShowForm showForm, ShowForm update )
         {
             InitializeComponent();
-            _showForm = showForm;
+            _showForm += showForm;
+            _showForm += update;
         }
 
         private void Form4_Load(object sender, EventArgs e)
         {
-            label7.Visible = false;
-            label8.Visible = false;
+
             try
             {
                 var ord = DataProcessing.ReadJsonFromFile<Customer>();
