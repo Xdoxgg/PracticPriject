@@ -26,6 +26,10 @@ public partial class Form1 : Form
         dataGridView1.Columns.Add(checkBoxColumn);
         dataGridView1.Columns[4].Width = 800;
         dataGridView1.Columns[3].Width = 800;
+
+        var ord = DataProcessing.ReadJsonFromFile<Ordere>();
+        var num = ord.Select(ord => ord.Number).ToList();
+        comboBox1.DataSource = num;
     }
 
 
