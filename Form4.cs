@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -27,10 +28,26 @@ namespace lab2
                 var orders = DataProcessing.ReadJsonFromFile<Item>();
                 var names = orders.Select(order => order.Name).ToList();
                 comboBox2.DataSource = names;
-            } catch(Exception exc)
-            { 
-                MessageBox.Show(exc.Message); 
+            } catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
             }
+            try
+            {
+                //label8
+                string labl8 = label8.Text;
+                int quanity;
+                string txtbox3 = textBox3.Text;
+                int.TryParse(txtbox3, out quanity);
+                if (textBox3 != null)
+                {
+                    ///TODO: код отображение текущий цены в зависимости от товара и кол-ва в label8
+                    ///string 
+                    ///labl8 = Item.UnitPrice * quanity;
+                }
+            }catch (Exception exc) { MessageBox.Show(exc.Message); }
+
+
         }
 
         private void button1_Click(object sender, EventArgs e)

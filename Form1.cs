@@ -11,33 +11,26 @@ public partial class Form1 : Form
 
     private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
     {
-
     }
 
     private void Form1_Load(object sender, EventArgs e)
     {
-        dataGridView1.Columns.Add("Number", "Number");
-        dataGridView1.Columns.Add("Client", "Client");
-        dataGridView1.Columns.Add("Date", "Date");
-        dataGridView1.Columns.Add("Dodik", "Adress");
+        dataGridView1.Columns.Add("Number", "Номер");
+        dataGridView1.Columns.Add("CreationDate", "Дата");
+        dataGridView1.Columns.Add("Adress", "Адрес");
+        dataGridView1.Columns.Add("Customer", "Клиент");
+        dataGridView1.Columns.Add("OrderLines", "Пункты заказа");
         DataGridViewCheckBoxColumn checkBoxColumn = new DataGridViewCheckBoxColumn();
-        checkBoxColumn.Name = "Urgency";
-        checkBoxColumn.HeaderText = "Urgency";
+        checkBoxColumn.Name = "IsExpressDelivery";
+        checkBoxColumn.HeaderText = "Срочный";
         dataGridView1.Columns.Add(checkBoxColumn);
-        //AddSampleData();
+        dataGridView1.Columns[4].Width = 800;
+        dataGridView1.Columns[3].Width = 800;
     }
-    //private void AddSampleData()
-    //{
-    //    dataGridView1.Rows.Add(1, "Ivan Ivanov Hyuev", "123-456-7890", true);
-    //    dataGridView1.Rows.Add(2, "", "098-765-4321", false);
-    //}
+
 
     private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
     {
-        if (e.ColumnIndex == 3)
-        {
-            //hz ne nado
-        }
     }
 
     private void label1_Click(object sender, EventArgs e)
@@ -49,23 +42,36 @@ public partial class Form1 : Form
         int orderId;
         if (int.TryParse(textBox1.Text, out orderId))
         {
-            LoadOrderData(orderId);
+            try
+            {
+                LoadOrderData(orderId);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         else
         {
             MessageBox.Show("Введите корректный номер заказа.");
         }
     }
+
     private void LoadOrderData(int id)
     {
-        //TODO: load data
         try
         {
-
-
             var orders = DataProcessing.ReadJsonFromFile<Ordere>();
-            var result = orders.Where(x => x.Number == id);
-            dataGridView1.DataSource = result;
+            var result = orders.Where(x => x.Number == id).First();
+  
+            string orderLinesStr = "";
+            foreach (var VARIABLE in result.OrderLines)
+            {
+                orderLinesStr += VARIABLE + ";";
+            }
+
+            dataGridView1.Rows.Add(result.Number, result.CreationDate, result.Adress, result.Customer, orderLinesStr,
+                result.IsExpressDelivery);
         }
         catch (Exception ex)
         {
@@ -89,7 +95,6 @@ public partial class Form1 : Form
 
     private void toolStripMenuItem1_Click(object sender, EventArgs e)
     {
-
     }
 
     private void button2_Click(object sender, EventArgs e)

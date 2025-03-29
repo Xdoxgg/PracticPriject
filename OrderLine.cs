@@ -5,6 +5,10 @@ public class OrderLine
 {
     private int _quantity;
     private Item _item;
+    public override string ToString()
+    {
+        return $"Количество: {_quantity}; товар: {_item}";
+    }
 
     public Item Item
     {
@@ -18,6 +22,7 @@ public class OrderLine
         set
         {
             if (value <= 0) throw new ArgumentException("Невалидное значение Quantity");
+            _quantity = value;
         }
     }
 

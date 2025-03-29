@@ -10,6 +10,7 @@ public class Ordere
     private Customer _customer;
     private List<OrderLine> _orderLines;
 
+
     public Ordere(int number, DateTime creationDate, string adress, bool isExpressDelivery, Customer customer,
         List<OrderLine> orderLines)
     {
@@ -30,8 +31,8 @@ public class Ordere
         get => _number;
         set
         {
-            if (value <= 0) throw new ArgumentException("Невалидное значение Number");
-            value = _number;
+            if (value < 0) throw new ArgumentException("Невалидное значение NumberOrder");
+            _number = value;
         }
     }
 
@@ -65,23 +66,20 @@ public class Ordere
         set => _orderLines = value ?? throw new ArgumentException("Невалидное значение OrderLines");
     }
 
-    public double TotalCost
+    public double TotalCost()
     {
-        get
+        double sum = 0;
+        _orderLines.ForEach(x => sum += x.Cost);
+        if (_isExpressDelivery)
         {
-            double sum = 0;
-            _orderLines.ForEach(x => sum += x.Cost);
-            if (_isExpressDelivery)
-            {
-                sum *= 1.25;
-            }
-
-            if (_customer.Privileged && sum >= 1500)
-            {
-                sum = sum - sum * 0.15;
-            }
-
-            return sum;
+            sum *= 1.25;
         }
+
+        if (_customer.Privileged && sum >= 1500)
+        {
+            sum = sum - sum * 0.15;
+        }
+
+        return sum;
     }
 }

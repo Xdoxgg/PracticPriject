@@ -17,6 +17,7 @@ public class Item
         set
         {
             if (value.Length != 6) throw new ArgumentException("Невалидное значение Article");
+            _article = value;
         }
     }
 
