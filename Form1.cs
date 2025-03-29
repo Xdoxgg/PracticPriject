@@ -91,4 +91,16 @@ public partial class Form1 : Form
     {
 
     }
+
+    private void button2_Click(object sender, EventArgs e)
+    {
+        this.Close();
+    }
+
+    private void button3_Click(object sender, EventArgs e)
+    {
+        this.Visible = false;
+        Form4 f4 = new Form4();
+        f4.ShowDialog();
+    }
 }

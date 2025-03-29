@@ -38,6 +38,8 @@ partial class Form1
         toolStripMenuItem1 = new ToolStripMenuItem();
         AddItemToolStripMenuItem = new ToolStripMenuItem();
         AddCustomerToolStripMenuItem = new ToolStripMenuItem();
+        button2 = new Button();
+        button3 = new Button();
         ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
         menuStrip1.SuspendLayout();
         SuspendLayout();
@@ -120,11 +122,33 @@ partial class Form1
         AddCustomerToolStripMenuItem.Text = "Добавить покупателя";
         AddCustomerToolStripMenuItem.Click += AddCustomerToolStripMenuItem_Click;
         // 
+        // button2
+        // 
+        button2.Location = new Point(12, 500);
+        button2.Name = "button2";
+        button2.Size = new Size(125, 45);
+        button2.TabIndex = 6;
+        button2.Text = "Exit";
+        button2.UseVisualStyleBackColor = true;
+        button2.Click += button2_Click;
+        // 
+        // button3
+        // 
+        button3.Location = new Point(12, 229);
+        button3.Name = "button3";
+        button3.Size = new Size(139, 60);
+        button3.TabIndex = 7;
+        button3.Text = "Add order";
+        button3.UseVisualStyleBackColor = true;
+        button3.Click += button3_Click;
+        // 
         // Form1
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(1100, 557);
+        Controls.Add(button3);
+        Controls.Add(button2);
         Controls.Add(label2);
         Controls.Add(button1);
         Controls.Add(label1);
@@ -153,4 +177,6 @@ partial class Form1
     private ToolStripMenuItem toolStripMenuItem1;
     private ToolStripMenuItem AddItemToolStripMenuItem;
     private ToolStripMenuItem AddCustomerToolStripMenuItem;
+    private Button button2;
+    private Button button3;
 }
