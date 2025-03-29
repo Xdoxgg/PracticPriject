@@ -232,7 +232,7 @@
             button3.TabIndex = 21;
             button3.Text = "Рассчитать цену";
             button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
+            // button3.Click += button3_Click;
             // 
             // Form4
             // 

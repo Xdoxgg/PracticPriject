@@ -13,9 +13,14 @@ namespace lab2
 {
     public partial class Form4 : Form
     {
-        public Form4()
+        private ShowForm _showForm;
+        List<OrderLine> _orderLines = new List<OrderLine>();
+        List<Item> _items = DataProcessing.ReadJsonFromFile<Item>();
+
+        public Form4(ShowForm showForm)
         {
             InitializeComponent();
+            _showForm = showForm;
         }
 
         private void Form4_Load(object sender, EventArgs e)
@@ -25,30 +30,26 @@ namespace lab2
             try
             {
                 var ord = DataProcessing.ReadJsonFromFile<Customer>();
-                var cust = ord.Select(ord => ord.FullName).ToList();
+                var cust = ord.Select(ord => ord.Code).ToList();
                 comboBox1.DataSource = cust;
                 var orders = DataProcessing.ReadJsonFromFile<Item>();
-                var names = orders.Select(order => order.Name).ToList();///TODO: МИШАНЯ проверь добавление пользователей и товаров в 2 comboBox
+                var names = orders.Select(order => order.Article).ToList();
                 comboBox2.DataSource = names;
             }
             catch (Exception exc)
             {
                 MessageBox.Show(exc.Message);
             }
-            
-
-
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            _showForm();
             this.Hide();
-            ///TODO: доделать переход на Form1
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
         }
 
         private void textBox3_Click(object sender, EventArgs e)
@@ -58,58 +59,65 @@ namespace lab2
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if(label7.Visible == false)
-            {
-                MessageBox.Show("Сперва рассчитайте итоговую стоимость");
-            }
-            if(textBox1 ==null ||textBox2==null)
+            if (textBox1 == null || textBox2 == null)
             {
                 MessageBox.Show("Не введены данные");
             }
+
             try
             {
+                List<Ordere> orderes = DataProcessing.ReadJsonFromFile<Ordere>();
                 string txtbx1 = textBox1.Text;
                 int num;
                 int.TryParse(txtbx1, out num);
                 DateTime dateTimePickerValue = dateTimePicker1.Value;
                 string adres = textBox2.Text;
                 bool expressStatus = radioButton1.Checked;
-            } catch (Exception exc) { MessageBox.Show(exc.Message); }
-            ///TODO: преобразование в класс ordere и запись в json
-
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            int quanity;
-            string txtbox3 = textBox3.Text;
-            int.TryParse(txtbox3, out quanity);
-            if (quanity <= 0)
-            {
-                MessageBox.Show("Выберите товар и введите кол-во товаров");
-            }
-            else
-            {
-                label7.Visible = true;
-                label8.Visible = true;
-            }
-            
-
-            try
-            {
-                //label8
-                string labl8 = label8.Text;
-               
-                if (textBox3 != null)
+                List<Customer> customers = DataProcessing.ReadJsonFromFile<Customer>();
+                Customer customer = customers.Where(x => x.Code == comboBox1.SelectedItem.ToString()).First();
+                _orderLines.Add(new OrderLine(int.Parse(textBox3.Text),
+                    _items.Where(x => x.Article == comboBox2.SelectedItem.ToString()).First()));
+                Ordere ordere = new Ordere(num, dateTimePickerValue, adres, expressStatus, customer, _orderLines);
+                if (orderes.Find(x => x.Number == ordere.Number) != default)
                 {
-                    ///TODO: код отображение текущий цены в зависимости от товара и кол-ва в label8
-                    ///string 
-                    ///labl8 = Item.UnitPrice * quanity;
-                    ///Можно при рассчете цены создать экзмепляр класса OrderLine в крысу
+                    MessageBox.Show("Такой заказ уже существует");
+                }
+                else
+                {
+                    orderes.Add(ordere);
+                    DataProcessing.WriteToFile(orderes);
                 }
             }
-            catch (Exception exc) { MessageBox.Show(exc.Message); }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
         }
+
+        // private void button3_Click(object sender, EventArgs e)
+        // {
+        //     int quanity;
+        //     string txtbox3 = textBox3.Text; //count
+        //     int.TryParse(txtbox3, out quanity);
+        //     if (quanity <= 0)
+        //     {
+        //         MessageBox.Show("Выберите товар и введите кол-во товаров");
+        //     }
+        //     else
+        //     {
+        //         _orderLines.Add(new OrderLine(quanity, _items.Where()));
+        //     }
+        //
+        //
+        //     try
+        //     {
+        //         //label8
+        //         // string labl8 = label8.Text;
+        //     }
+        //     catch (Exception exc)
+        //     {
+        //         MessageBox.Show(exc.Message);
+        //     }
+        // }
     }
 }
