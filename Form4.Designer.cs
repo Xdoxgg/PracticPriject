@@ -47,6 +47,7 @@
             label6 = new Label();
             label7 = new Label();
             label8 = new Label();
+            button3 = new Button();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -95,10 +96,12 @@
             // radioButton1
             // 
             radioButton1.AutoSize = true;
+            radioButton1.Checked = true;
             radioButton1.Location = new Point(8, 18);
             radioButton1.Name = "radioButton1";
             radioButton1.Size = new Size(158, 24);
             radioButton1.TabIndex = 0;
+            radioButton1.TabStop = true;
             radioButton1.Text = "Экспресс доставка";
             radioButton1.UseVisualStyleBackColor = true;
             // 
@@ -129,6 +132,7 @@
             button2.TabIndex = 10;
             button2.Text = "Создать заказ";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // label1
             // 
@@ -207,9 +211,9 @@
             label7.AutoSize = true;
             label7.Location = new Point(502, 265);
             label7.Name = "label7";
-            label7.Size = new Size(108, 20);
+            label7.Size = new Size(115, 20);
             label7.TabIndex = 19;
-            label7.Text = "Текущая цена:";
+            label7.Text = "Итоговая цена:";
             // 
             // label8
             // 
@@ -220,11 +224,22 @@
             label8.TabIndex = 20;
             label8.Text = "0.00";
             // 
+            // button3
+            // 
+            button3.Location = new Point(363, 265);
+            button3.Name = "button3";
+            button3.Size = new Size(123, 54);
+            button3.TabIndex = 21;
+            button3.Text = "Рассчитать цену";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
             // Form4
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(644, 425);
+            Controls.Add(button3);
             Controls.Add(label8);
             Controls.Add(label7);
             Controls.Add(label6);
@@ -272,5 +287,6 @@
         private Label label6;
         private Label label7;
         private Label label8;
+        private Button button3;
     }
 }
